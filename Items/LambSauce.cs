@@ -26,7 +26,7 @@ namespace GordonRamsay.Items
 			item.useStyle = ItemUseStyleID.HoldingUp;
 			item.consumable = true;
 		}
-
+        
         public override bool CanUseItem(Player player)
         {
             return !NPC.AnyNPCs(ModContent.NPCType<NPCs.GordonRamsay.GordonRamsay>());
@@ -37,6 +37,14 @@ namespace GordonRamsay.Items
             NPC.SpawnOnPlayer(player.whoAmI, ModContent.NPCType<NPCs.GordonRamsay.GordonRamsay>());
             Main.PlaySound(SoundID.Roar, player.position, 0);
             return true;
+        }
+        public override void AddRecipes()
+        {
+            ModRecipe recipe = new ModRecipe(mod);
+            recipe.AddIngredient(ItemID.Bone, 50);
+            recipe.AddTile(TileID.BoneWelder);
+            recipe.SetResult(this);
+            recipe.AddRecipe();
         }
     }
 }
