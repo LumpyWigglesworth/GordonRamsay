@@ -25,10 +25,10 @@ namespace GordonRamsay.Items
 			item.height = 30;
 			item.useTime = 45;
 			item.useAnimation = 45;
-			item.useStyle = 5;
+			item.useStyle = ItemUseStyleID.HoldingOut;
 			item.knockBack = 0;
-			item.value = 1000000;
-			item.rare = 5;
+			item.value = Item.sellPrice(0, 3, 0, 0);
+			item.rare = ItemRarityID.Pink;
 			item.shoot = ModContent.ProjectileType<SwearWord>();
 			item.shootSpeed = 0f;
 			item.UseSound = mod.GetLegacySoundSlot(SoundType.Item, "Sounds/Item/TVBleep75");
@@ -39,7 +39,7 @@ namespace GordonRamsay.Items
 			Dust dust;
 			// You need to set position depending on what you are doing. You may need to subtract width/2 and height/2 as well to center the spawn rectangle.
 			Vector2 position = Main.LocalPlayer.Center - new Vector2(-400, -400);
-			dust = Main.dust[Dust.NewDust(position, 800, 800, 50, 0f, 0f, 0, new Color(0, 0, 0), 1f)];
+			dust = Main.dust[Dust.NewDust(position, 800, 800, DustID.Adamantine, 0f, 0f, 0, new Color(0, 0, 0), 1f)];
 			return true;
 		}
 	}

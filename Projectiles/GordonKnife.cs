@@ -8,7 +8,6 @@ namespace GordonRamsay.Projectiles
 {
 	class GordonKnife : ModProjectile
 	{
-		private int radius = 800;
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Gordon's Knife");  //The English name of the projectile

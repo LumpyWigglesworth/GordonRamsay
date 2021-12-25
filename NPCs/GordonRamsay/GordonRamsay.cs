@@ -14,7 +14,7 @@ namespace GordonRamsay.NPCs.GordonRamsay
             get => npc.ai[0];
             set => npc.ai[0] = value;
         }
-        private float coolTime = 360;
+        private float coolTime = 240;
         private float chaseTime = 180;
         private float attackTime = 180;
         private int state = 0;
@@ -73,7 +73,7 @@ namespace GordonRamsay.NPCs.GordonRamsay
                     }
                     break;
                 case 1: // Chase state
-                    maxSpeed = 3f;
+                    maxSpeed = 5f;
                     timer++;
                     if (timer > chaseTime)
                     {
@@ -113,7 +113,8 @@ namespace GordonRamsay.NPCs.GordonRamsay
             // Falling Knives Attack
             if (state == 2 && timer % 30 == 0)
             {
-                float projectileX = p.Center.X;
+                int displacement = rand.Next(-300, 300);
+                float projectileX = p.Center.X + displacement;
                 float projectileY = p.Center.Y - 700;
                 Projectile.NewProjectile(projectileX, projectileY, 0, 15f, ModContent.ProjectileType<Projectiles.GordonKnife>(), npc.damage, 10);
             }

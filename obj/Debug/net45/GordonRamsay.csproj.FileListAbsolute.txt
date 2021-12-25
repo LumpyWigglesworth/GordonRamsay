@@ -23,10 +23,11 @@ C:\Users\david\Documents\My Games\Terraria\ModLoader\Mod Sources\GordonRamsay\bi
 C:\Users\david\Documents\My Games\Terraria\ModLoader\Mod Sources\GordonRamsay\bin\Debug\net45\tModLoader.xml
 C:\Users\david\Documents\My Games\Terraria\ModLoader\Mod Sources\GordonRamsay\bin\Debug\net45\MonoMod.RuntimeDetour.xml
 C:\Users\david\Documents\My Games\Terraria\ModLoader\Mod Sources\GordonRamsay\bin\Debug\net45\MonoMod.Utils.xml
-C:\Users\david\Documents\My Games\Terraria\ModLoader\Mod Sources\GordonRamsay\obj\Debug\net45\GordonRamsay.csprojAssemblyReference.cache
 C:\Users\david\Documents\My Games\Terraria\ModLoader\Mod Sources\GordonRamsay\obj\Debug\net45\GordonRamsay.AssemblyInfoInputs.cache
 C:\Users\david\Documents\My Games\Terraria\ModLoader\Mod Sources\GordonRamsay\obj\Debug\net45\GordonRamsay.AssemblyInfo.cs
 C:\Users\david\Documents\My Games\Terraria\ModLoader\Mod Sources\GordonRamsay\obj\Debug\net45\GordonRamsay.csproj.CoreCompileInputs.cache
 C:\Users\david\Documents\My Games\Terraria\ModLoader\Mod Sources\GordonRamsay\obj\Debug\net45\GordonRamsay.csproj.CopyComplete
 C:\Users\david\Documents\My Games\Terraria\ModLoader\Mod Sources\GordonRamsay\obj\Debug\net45\GordonRamsay.dll
 C:\Users\david\Documents\My Games\Terraria\ModLoader\Mod Sources\GordonRamsay\obj\Debug\net45\GordonRamsay.pdb
+C:\Users\david\Documents\My Games\Terraria\ModLoader\Mod Sources\GordonRamsay\obj\Debug\net45\GordonRamsay.csproj.AssemblyReference.cache
+C:\Users\david\Documents\My Games\Terraria\ModLoader\Mod Sources\GordonRamsay\obj\Debug\net45\GordonRamsay.GeneratedMSBuildEditorConfig.editorconfig

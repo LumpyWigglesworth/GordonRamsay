@@ -1,3 +1,4 @@
+using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -19,10 +20,10 @@ namespace GordonRamsay.Items
 			item.height = 32;
 			item.useTime = 15;
 			item.useAnimation = 15;
-			item.useStyle = 3;
+			item.useStyle = ItemUseStyleID.Stabbing;
 			item.knockBack = 2;
-			item.value = 1000000;
-			item.rare = 5;
+			item.value = Item.sellPrice(0, 3, 0, 0);
+			item.rare = ItemRarityID.Pink;
 			item.UseSound = SoundID.Item1;
 			item.autoReuse = false;
 		}

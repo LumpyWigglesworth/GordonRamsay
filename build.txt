@@ -1,4 +1,4 @@
 displayName = Gordon Ramsay Mod
 author = LumpyWiggles
-version = 0.1.2
+version = 0.1.3.0
 homepage = https://github.com/LumpyWigglesworth/GordonRamsay
