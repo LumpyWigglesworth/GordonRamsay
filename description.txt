@@ -1,1 +1,1 @@
-Adds a Gordon Ramsay boss and several Gordon Ramsay themed items. Only works in single player.
+Adds a Gordon Ramsay boss and several Gordon Ramsay themed items. Netcode still in progress.

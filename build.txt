@@ -1,4 +1,4 @@
 displayName = Gordon Ramsay Mod
 author = LumpyWiggles
-version = 0.1.3.0
-homepage = https://github.com/LumpyWigglesworth/GordonRamsay
+version = 0.1.3.1
+homepage = https://forums.terraria.org/index.php?threads/the-gordon-ramsay-mod.110111/

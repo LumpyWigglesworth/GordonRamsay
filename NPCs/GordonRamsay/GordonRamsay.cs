@@ -116,9 +116,10 @@ namespace GordonRamsay.NPCs.GordonRamsay
                 int displacement = rand.Next(-300, 300);
                 float projectileX = p.Center.X + displacement;
                 float projectileY = p.Center.Y - 700;
-                Projectile.NewProjectile(projectileX, projectileY, 0, 15f, ModContent.ProjectileType<Projectiles.GordonKnife>(), npc.damage, 10);
+                int knife = Projectile.NewProjectile(projectileX, projectileY, 0, 15f, ModContent.ProjectileType<Projectiles.GordonKnife>(), npc.damage, 10);
+                Main.projectile[knife].netUpdate = true;
             }
-
+            npc.netUpdate = true;
         }
         public override void NPCLoot()
         {
