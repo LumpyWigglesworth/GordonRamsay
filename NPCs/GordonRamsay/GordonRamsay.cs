@@ -2,6 +2,7 @@
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Terraria.Utilities;
 using Microsoft.Xna.Framework;
 
 namespace GordonRamsay.NPCs.GordonRamsay
@@ -17,14 +18,14 @@ namespace GordonRamsay.NPCs.GordonRamsay
         private float coolTime = 240;
         private float chaseTime = 180;
         private float attackTime = 180;
-        private int state = 0;
+        private int state = 1;
+        private float knifeSpeed = 10f;
         /*
          0: Movement/cooldown
          1: Chase attack
          */
         private float maxSpeed = 8f;
         private float speed = 5f;
-        Random rand = new Random();
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Gordon Ramsay");
@@ -57,63 +58,67 @@ namespace GordonRamsay.NPCs.GordonRamsay
             Player p = Main.player[npc.target];
             if (p.dead || !p.active)
             {
-                state = 3;
+                state = 0;
             }
             // Logic
-            switch (state)
+            if (Main.netMode != NetmodeID.MultiplayerClient)
             {
-                case 0: // Idle state
-                    maxSpeed = 8f;
-                    timer++;
-                    if (timer > coolTime)
-                    {
-                        timer = 0;
-                        int newState = rand.Next(1, 3);
-                        state = newState;
-                    }
-                    break;
-                case 1: // Chase state
-                    maxSpeed = 5f;
-                    timer++;
-                    if (timer > chaseTime)
-                    {
-                        timer = 0;
-                        state = 0;
-                    }
-                    break;
-                case 2: // Attack state
-                    timer++;
-                    if (timer > attackTime)
-                    {
-                        timer = 0;
-                        state = 0;
-                    }
-                    break;
-                case 3: // Flee state
-                    maxSpeed = 8f;
-                    if (npc.timeLeft > 10)
-                    {
-                        npc.timeLeft = 10;
-                    }
-                    break;
+                switch (state)
+                {
+                    case 0: // Flee state
+                        maxSpeed = 8f;
+                        if (npc.timeLeft > 10)
+                        {
+                            npc.timeLeft = 10;
+                        }
+                        break;
+                    case 1: // Idle state
+                        maxSpeed = 8f;
+                        timer++;
+                        if (timer > coolTime)
+                        {
+                            timer = 0;
+                            int newState = WorldGen.genRand.Next(2, 4);
+                            state = newState;
+                        }
+                        break;
+                    case 2: // Attack state
+                        timer++;
+                        if (timer > attackTime)
+                        {
+                            timer = 0;
+                            state = 1;
+                        }
+                        break;
+                    case 3: // Chase state
+                        maxSpeed = 5f;
+                        timer++;
+                        if (timer > chaseTime)
+                        {
+                            timer = 0;
+                            state = 1;
+                        }
+                        break;
+                }
             }
             // Movement
             Vector2 distance = new Vector2(0f, -250f);
             Vector2 moveTo;
-            if (state == 1)
+            if (state == 3)
                 moveTo = p.Center;
-            else if (state != 3)
+            else if (state == 1 || state == 2)
                 moveTo = p.Center + distance;
             else
                 moveTo = p.Center + new Vector2(0f, -1000f);
             Vector2 direction = (moveTo - npc.Center).SafeNormalize(Vector2.UnitX);
             speed = Vector2.Distance(moveTo, npc.Center) / 20;
             if (speed > maxSpeed) speed = maxSpeed;
-            npc.velocity = (direction * speed);
+            if(Main.netMode != NetmodeID.MultiplayerClient)
+                npc.velocity = (direction * speed);
             // Falling Knives Attack
-            if (state == 2 && timer % 30 == 0)
+            if (state == 2 && timer % knifeSpeed == 0 && Main.netMode != NetmodeID.MultiplayerClient)
             {
-                int displacement = rand.Next(-300, 300);
+                int displacement = WorldGen.genRand.Next(-400, 400);
                 float projectileX = p.Center.X + displacement;
                 float projectileY = p.Center.Y - 700;
                 int knife = Projectile.NewProjectile(projectileX, projectileY, 0, 15f, ModContent.ProjectileType<Projectiles.GordonKnife>(), npc.damage, 10);
