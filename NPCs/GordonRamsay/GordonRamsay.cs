@@ -90,6 +90,8 @@ namespace GordonRamsay.NPCs.GordonRamsay
                         }
                         break;
                     case 2: // Attack state
+                        npc.TargetClosest(false);
+                        p = Main.player[npc.target];
                         timer++;
                         if (timer > attackTime)
                         {
@@ -98,6 +100,8 @@ namespace GordonRamsay.NPCs.GordonRamsay
                         }
                         break;
                     case 3: // Chase state
+                        npc.TargetClosest(false);
+                        p = Main.player[npc.target];
                         maxSpeed = 5f;
                         timer++;
                         if (timer > chaseTime)
