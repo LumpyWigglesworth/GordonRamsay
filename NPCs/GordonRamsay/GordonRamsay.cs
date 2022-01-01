@@ -58,7 +58,12 @@ namespace GordonRamsay.NPCs.GordonRamsay
             Player p = Main.player[npc.target];
             if (p.dead || !p.active)
             {
-                state = 0;
+                npc.TargetClosest(false);
+                p = Main.player[npc.target];
+                if (p.dead || !p.active)
+                {
+                    state = 0;
+                }
             }
             // Logic
             if (Main.netMode != NetmodeID.MultiplayerClient)
@@ -73,6 +78,8 @@ namespace GordonRamsay.NPCs.GordonRamsay
                         }
                         break;
                     case 1: // Idle state
+                        npc.TargetClosest(false);
+                        p = Main.player[npc.target];
                         maxSpeed = 8f;
                         timer++;
                         if (timer > coolTime)

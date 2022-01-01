@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Yme6/NnPuYSOVUMWaTaSDL/0XK+fNuQkuql7sOcY1oMXB4xJpB7PwjMZsQU1Qau70Ej3QW6Z0sXqf6ZxHq5xUg==",
+  "dgSpecHash": "2Gj9Ecf5QSZ5A2xUIn7vSjmFPscU6WtZayYPfIw9EyxHuy996zU13ApUXrYHys4GNReYUxc+0bPdp5VA6Co7QA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\david\\OneDrive\\Documents\\My Games\\Terraria\\ModLoader\\Mod Sources\\GordonRamsay\\GordonRamsay.csproj",
+  "projectFilePath": "C:\\Users\\david\\Documents\\My Games\\Terraria\\ModLoader\\Mod Sources\\GordonRamsay\\GordonRamsay.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\david\\.nuget\\packages\\tmodloader.codeassist\\0.1.3\\tmodloader.codeassist.0.1.3.nupkg.sha512"
   ],
